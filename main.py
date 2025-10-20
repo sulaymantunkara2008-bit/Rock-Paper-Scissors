@@ -1,0 +1,38 @@
+from getpass import getpass as input
+print("Select your R, P, or S")
+print("R for Rock, P for Paper, S for Scissors")
+print("Best of 3 wins! also your input is hidden so don't worry about cheating!" )
+counter = 0
+counter2 = 0
+Round = 1
+while True:
+  print("Round", Round)
+  user = input("Player 1 select R, P, or S: ")
+  user2 = input("Player 2 select R, P, or S: ")
+  if user == "R" and user2 == "P" or user == "P" and user2 == "S" or user == "S" and user2 == "R":
+      print(user2, "beats", user, "player 2 gets a point!")
+      counter2 += 1
+      Round += 1
+  elif user == "R" and user2 == "R" or  user == "P" and user2 == "P" or user == "S" and user2 == "S":
+      print("It's a tie! No points awarded.")
+      Round += 1
+  elif user  == "P" and user2 == "R" or user == "S" and user2 == "P" or user == "R" and user2 == "S":
+      print(user, "beats", user2, "player 1 gets a point!")
+      counter += 1
+      Round += 1
+  else: 
+    print("Invalid input. Try again.")
+  if counter == 3:
+   print("With a score of", counter, "to", counter2, "Player 1 wins!")
+  elif counter2 == 3:
+   print("With a score of", counter2, "to", counter, "Player 2 wins!")
+   Again = input("Do you want to play again? (y/n):")
+   if Again == "y":
+    Round = 1
+    counter = 0
+    counter2 = 0
+    continue
+   elif Again == "n":  
+     print("Thanks for playing!")
+     break
+    
